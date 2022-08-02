@@ -50,6 +50,7 @@ public class TC_01A_SettingOption {
 
 
         driver.quit();
+        driver.close(); //11
 
 
 
