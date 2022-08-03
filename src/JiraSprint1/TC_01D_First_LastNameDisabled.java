@@ -22,6 +22,9 @@ public class TC_01D_First_LastNameDisabled {
 
         driver.manage().window().maximize();
 
+        WebElement acceptCookies = driver.findElement(By.xpath("(//button[text()='Accept all cookies'])[1]"));
+        acceptCookies.click();
+
         WebElement userName = driver.findElement(By.xpath("//input[@placeholder='Username']"));
         userName.sendKeys("oktaysaglam55@gmail.com");
 
@@ -44,8 +47,8 @@ public class TC_01D_First_LastNameDisabled {
         boolean isDisabled = firstName.isDisplayed();
         boolean isDisabled2 = lastName.isDisplayed();
 
-        System.out.println("First name is Successfully disabled: " + isDisabled);
-        System.out.println("Last Name name is Successfully disabled: " + isDisabled2);
+        System.out.println("First name is disabled: " + isDisabled);
+        System.out.println("Last Name name is disabled: " + isDisabled2);
 
     }
 }

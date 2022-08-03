@@ -5,16 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class TC_01E_Default_Language {
+public class TC_01F_Default_TImeZone {
 
     public static void main(String[] args) {
-
 
         System.setProperty("webdriver.chrome.driver", "/Users/oktaysaglam/Downloads/chromedriver");
 
@@ -47,46 +45,12 @@ public class TC_01E_Default_Language {
         WebElement clickSettingOption = driver.findElement(By.xpath("(//button[@role='menuitem'])[4]"));
         clickSettingOption.click();
 
-        WebElement defaultLangOption = new WebDriverWait(driver, Duration.ofSeconds(5)).
-                until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='English']")));
-        boolean selectLanguage = defaultLangOption.isDisplayed();
-
-        System.out.println("'"+selectLanguage+"'"+" English Language is accessible ");
-
-        WebElement lang = driver.findElement(By.xpath("//div[@class='mat-form-field-infix ng-tns-c74-85']"));
-        lang.isDisplayed();
-
-        WebElement languageDropdown = driver.findElement(By.xpath(("//mat-select[@role='combobox'])[1]")));
-        wait.until(ExpectedConditions.visibilityOf(languageDropdown));
-        Select selectLang = new Select(languageDropdown);
-        wait.until(ExpectedConditions.visibilityOf(languageDropdown));
-        selectLang.selectByIndex(2);
+        WebElement selectTimezone = new WebDriverWait(driver, Duration.ofSeconds(5)).
+                until(ExpectedConditions.elementToBeClickable(By.xpath("//mat-select[@formcontrolname='timeZone']")));
+        boolean timezoneOption = selectTimezone.isDisplayed();
 
 
-
-//        WebElement defaultLangOption2 = driver.findElement(By.xpath("//span[text()='Turkish']"));
-//                wait.until(ExpectedConditions.visibilityOf(defaultLangOption2));
-//        boolean selectLanguage2 = defaultLangOption2.isDisplayed();
-//
-//
-//        System.out.println("'"+selectLanguage2+"'"+" Turkish Language is accessible ");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println("'"+timezoneOption+"'"+" default timezone is accessible ");
 
 
 

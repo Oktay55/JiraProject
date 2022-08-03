@@ -23,6 +23,9 @@ public class TC_01B_ValidEmail {
 
         driver.manage().window().maximize();
 
+        WebElement acceptCookies = driver.findElement(By.xpath("(//button[text()='Accept all cookies'])[1]"));
+        acceptCookies.click();
+
         WebElement userName = driver.findElement(By.xpath("//input[@placeholder='Username']"));
         userName.sendKeys("oktaysaglam55@gmail.com");
 

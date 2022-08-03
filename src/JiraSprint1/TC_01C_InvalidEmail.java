@@ -23,6 +23,9 @@ public class TC_01C_InvalidEmail {
 
         driver.manage().window().maximize();
 
+        WebElement acceptCookies = driver.findElement(By.xpath("(//button[text()='Accept all cookies'])[1]"));
+        acceptCookies.click();
+
         WebElement userName = driver.findElement(By.xpath("//input[@placeholder='Username']"));
         userName.sendKeys("oktaysaglam55@gmail.com");
 
@@ -37,6 +40,8 @@ public class TC_01C_InvalidEmail {
 
         WebElement clickSettingOption = driver.findElement(By.xpath("(//button[@role='menuitem'])[4]"));
         clickSettingOption.click();
+
+
 
         String value = "sdfdd@123.er";
         WebElement emailInputOption = driver.findElement(By.xpath("//*[@id='mat-input-4']"));

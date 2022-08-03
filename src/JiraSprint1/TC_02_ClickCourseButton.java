@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class TC_01A_SettingOption {
+public class TC_02_ClickCourseButton {
 
     public static void main(String[] args) {
 
@@ -19,6 +19,8 @@ public class TC_01A_SettingOption {
         WebDriver driver = new ChromeDriver();
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 
         driver.get("https://campus.techno.study/user-courses");
@@ -37,35 +39,23 @@ public class TC_01A_SettingOption {
         WebElement loginInput = driver.findElement(By.xpath("(//span[@class='mat-button-wrapper'])[1]"));
         loginInput.click();
 
-        WebElement userIconModuleClick = driver.findElement(By.xpath("//div[@fxlayoutalign='center center']"));
-        userIconModuleClick.click();
+        WebElement courseIcon = driver.findElement(By.cssSelector("button[style='margin-right: 4px;']"));
+        courseIcon.click();
 
-        WebElement clickSettingOption = driver.findElement(By.xpath("(//button[@role='menuitem'])[4]"));
-        clickSettingOption.click();
-
-
-        WebElement settingWindow = new WebDriverWait(driver, Duration.ofSeconds(5)).
-                until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cdk-overlay-3']")));
-        boolean settingWindowPopup = settingWindow.isDisplayed();
-
-        System.out.println("'"+settingWindowPopup+"'"+" Popup Window Displayed! ");
+        WebElement detailsIcon = driver.findElement(By.xpath("(//span[@class='mat-button-wrapper'])[17]"));
+        System.out.println(detailsIcon.isDisplayed()+ "" + " : able to see details option successfully");
 
 
-        driver.quit();
+        WebElement syllabus = driver.findElement(By.xpath("(//span[@class='mat-button-wrapper'])[18]"));
+        System.out.println(syllabus.isDisplayed()+ "" + " : able to see syllabus option successfully");
 
+        WebElement detailsOption = driver.findElement(By.xpath("//*[@id='container-3']/courses/ms-browse/div/mat-grid-list/div/mat-grid-tile[4]/div/mat-card/mat-card-footer/div[1]/button"));
+        detailsOption.click();
 
-
-
-
-
-
-
-
-
-
-
-
-
+        WebElement assignmentButton = driver.findElement(By.xpath("//*[@id='mat-tab-label-0-1']/div/span"));
+        wait.until(ExpectedConditions.elementToBeClickable(assignmentButton));
+        assignmentButton.click();
+        System.out.println(assignmentButton.isDisplayed()+ "" + " : able to see course assignments page successfully");
 
 
 
@@ -78,6 +68,4 @@ public class TC_01A_SettingOption {
 
 
     }
-
-
 }
