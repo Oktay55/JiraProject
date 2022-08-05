@@ -41,16 +41,22 @@ public class TC_01B_ValidEmail {
         WebElement clickSettingOption = driver.findElement(By.xpath("(//button[@role='menuitem'])[4]"));
         clickSettingOption.click();
 
+        String expected = "oktyasaglam55@gmail.com";
+
         String value = "oktyasaglam55@gmail.com";
         WebElement emailInputOption = driver.findElement(By.xpath("//*[@id='mat-input-4']"));
         emailInputOption.clear();
         emailInputOption.sendKeys(value);
 
-        if(value.equals(userName)) {
+        if (value.equals(expected)) {
             System.out.println("Passed");
         } else {
-            System.out.println("Failed!, Entered Invalid Email");
+            System.out.println("Failed");
         }
+
+
+
+
 
 
         WebElement saveButton = driver.findElement(By.cssSelector("button[color='accent']"));
